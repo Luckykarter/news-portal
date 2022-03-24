@@ -99,8 +99,9 @@ class Article(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to='news_images', blank=True)
     external_image = models.URLField(blank=True, default=None, null=True, max_length=2048)
-    external_url = models.URLField(help_text="URL of the article if it's from external source", max_length=2048)
-    keywords = models.ManyToManyField(Keyword)
+    external_url = models.URLField(help_text="URL of the article if it's from external source", max_length=2048,
+                                   blank=True)
+    keywords = models.ManyToManyField(Keyword, blank=True)
 
     objects = ArticleManager()
 
