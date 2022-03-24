@@ -33,10 +33,9 @@ DEBUG = os.environ.get('DEBUG_VALUE') == 'TRUE'
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['34.122.111.115']
 
 ENVIRONMENT = os.getenv('ENVIRONMENT')
-IS_GCLOUD = (ENVIRONMENT == 'gcloud')
 
 NEWS_PORTAL_KEY = os.getenv('NEWS_PORTAL_KEY')
 
@@ -150,17 +149,8 @@ USE_TZ = True
 STATIC_ROOT = '/app/assets/'
 MEDIA_ROOT = '/app/media/'
 
-if IS_GCLOUD:
-    STATIC_URL = "http://storage.googleapis.com/voitixler_media/static/"
-    MEDIA_URL = "http://storage.googleapis.com/voitixler_media/media/"
-    STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static')
-    ]
-else:
-    STATIC_URL = "/static/"
-    MEDIA_URL = "/media/"
+STATIC_URL = "/static/"
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
