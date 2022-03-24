@@ -43,7 +43,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     search_fields = ['title', 'description']
     ordering_fields = ['timestamp', 'author', 'title']
 
-    queryset = model.objects.all()
+    queryset = model.objects.all().order_by('-timestamp')
     _filter = {}
 
     @getter
