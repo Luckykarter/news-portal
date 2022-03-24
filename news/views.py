@@ -65,7 +65,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         self._filter = {}
-        queryset = self.model.objects.all()
+        queryset = self.model.objects.all().order_by('-timestamp')
 
         self._add_to_filter('timestamp__gte', self._get_timestamp('from_date'))
         to_date = self._get_timestamp('to_date')
