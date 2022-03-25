@@ -5,7 +5,7 @@ from news import models
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Author
-        fields = ('first_name', 'last_name', 'email')
+        fields = ('first_name', 'last_name',)
 
 
 class ArticleSerializer(serializers.ModelSerializer):
@@ -13,10 +13,14 @@ class ArticleSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField()
 
     def get_image_url(self, obj):
+        """
+        If image attached locally - use it,
+        otherwise - use external image
+        """
         if obj.image:
             return obj.image.url
         return obj.external_image
 
     class Meta:
         model = models.Article
-        exclude = ('keywords',)
+        exclude = ('keywords', 'external_image', 'image',)
