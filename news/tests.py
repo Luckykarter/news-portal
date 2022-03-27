@@ -1,5 +1,3 @@
-import datetime
-
 import pytest
 
 from requests import HTTPError
@@ -64,9 +62,11 @@ def news_api():
 def list_articles_url():
     return reverse('articles-list')
 
+
 @pytest.fixture(scope="session")
 def download_url():
     return reverse('articles-download-articles-from-newsapi')
+
 
 class TestArticle:
     @pytest.mark.parametrize('article_json', ARTICLES)

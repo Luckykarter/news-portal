@@ -26,6 +26,3 @@ class NewsApi:
         if 'articles' not in res:   # pragma: no cover
             raise RuntimeError(f'Response from {self.url} does not contain "articles"')
         return res['articles']
-
-
-

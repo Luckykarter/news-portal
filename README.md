@@ -13,13 +13,17 @@ http://34.122.111.115/gateway/news/swagger/
 
 ## Features
 
-The application holds news data (articles) in relational database and serves it via REST API.
+The application holds news data (articles) in relational database (PostgreSQL) and serves it via REST API.
 
 ### Entering the data
 
 There are several ways of inputting data into the app
 
-There is an integration with resource **newsapi.org** to get the articles.
+There is an integration with resource **newsapi.org** to get the articles. 
+
+**NOTE** that to be able to retrieve data from newapi.org - 
+the environment variable `NEWS_PORTAL_KEY` has to be set with the relevant API key.  
+
 #### Via command 
 ```
 python manage.py get_articles_from_newsapi --query="topic1, topic2" --period=25
@@ -57,4 +61,5 @@ docker build .
 ```
 More info about deployment info can be found in the parent repository 
 
+**NOTE** That application can't be built/started "as-is" because it requires secret environment variable `SECRET_KEY` which is not included in this repo.
 
