@@ -4,13 +4,6 @@ Django based back-end for the news reader project.
 
 The project is intended to dockerized deployment and has no coupling with any front-end.
 
-### Swagger UI
-http://34.122.111.115/gateway/news/swagger/
-
-<a href="http://34.122.111.115/gateway/news/swagger/" target="_blank">
-<img src="http://validator.swagger.io/validator?url=http://34.122.111.115/gateway/news/swagger/">
-</a>
-
 ## Features
 
 The application holds news data (articles) in relational database (PostgreSQL) and serves it via REST API.
