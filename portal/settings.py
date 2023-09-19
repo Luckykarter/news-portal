@@ -33,7 +33,11 @@ DEBUG = os.environ.get('DEBUG_VALUE') == 'TRUE'
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = ['34.122.111.115', 'voitixler.com']
+    ALLOWED_HOSTS = [
+        '34.122.111.115',
+        'voitixler.com',
+        'wexler.io',
+    ]
 
 ENVIRONMENT = os.getenv('ENVIRONMENT')
 
